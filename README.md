@@ -603,7 +603,7 @@ As we can see our plugin is loaded and we can see ne Pallete on top of the Zbrus
     <div style="font-size: 24px">And that's it. We just created our first Zbrush plugin with Rust. </div>
     <br /><br />
     <div >
-        <img src="https://media.giphy.com/media/2m0nwShNyxzRlPbBMk/giphy.gif" alt="Matrix" style="width: 310px !important;">
+        <img src="https://i.giphy.com/2m0nwShNyxzRlPbBMk.webp" alt="SV" style="width: 310px !important;">
     </div>
 </div>
 
