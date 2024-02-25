@@ -590,7 +590,7 @@ And then load our plugin from Zbrush menu `Zscript` -> `Load` -> `Zplugin64` -> 
 
 ![ZScript load txt](img/load-zscript.jpg)
 
-<br />https://github.com/IgorDmytrenko/Zbrush-plugin-template/blob/main/README.md
+<br />
 
 As we can see our plugin is loaded and we can see ne Pallete on top of the Zbrush window. If we click on it we can see our buttons which we implemented in ZScript. Lets click on each of them and check how they work.
 
