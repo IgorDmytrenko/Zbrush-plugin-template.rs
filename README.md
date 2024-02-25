@@ -617,7 +617,7 @@ As we can see our plugin is loaded and we can see ne Pallete on top of the Zbrus
 
 I hope this article will help you to understand how to create your own plugin for Zbrush. I tried to cover all the necessary steps which you'll need to create your own plugin from scratch. 
 
-In that moment when i decided to create my own plugin, I didn't find any useful information. I did a lot of crash tests, read different very old ( oldest discussion was 19 year old ) discussions on forums. Tried to understand how to glue all this stuff together. And finaly structurised all my knowledge in this article. That was interesting experiance for me, as i didn't have any experience with Zbrush and ZScript before even with C compabilities in Rust. But as end result I hope this dockumentation will help you to save your time and avoid my mistakes.
+In that moment when i decided to create my own plugin, I didn't find any useful information. I did a lot of crash tests, read different very old ( oldest discussion was 19 year old ) discussions on forums. Tried to understand how to glue all this stuff together. And finaly structurised all my knowledge in this article. That was interesting experiance for me, as i didn't have any experience with Zbrush and ZScript before even with C compabilities in Rust. But as end result I hope this documentation will help you to save your time and avoid my mistakes.
 
 Feel free to use this template for your own plugin and modify it as you need, and if you have any questions or suggestions, feel free to contact me. I will be happy to help you.
 
