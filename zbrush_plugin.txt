@@ -1,0 +1,64 @@
+/* 
+    COPYRIGHT 2024 - 2*** | Zbrush Plugin template
+    AUTHOR: IHOR DMYTRENKO.
+    VERSION: 1.0.0
+    DESCRIPTION: Template for Zbrush plugin development.
+    LICENSE: MIT
+/* 
+
+/* DEFINE DLL PATH AND SYSTEM CHECK */
+/* Define plugin name which used for DLL path as well */
+[VarSet, pluginName, "Zbrush-Plugin-Template"]
+[VarSet, zbrushVersion, [ZBrushInfo,0]]
+[If, [Val, zbrushVersion] >= 2022.0,,		
+    [Note, 
+        "\Cff9923This zscript\Cffffff is not designed for this version of \Cff9923ZBrush\Cffffff.",,3,4737096,,300
+    ]
+]	
+
+[VarSet, isMacOS, [ZBrushInfo, 6]]	//check Mac or PC
+[If, [ZBrushInfo, 16] == 64,        //check 64 bit
+    [If, isMacOS,
+        [VarSet, dllPath, 
+            [StrMerge, "ZBRUSH_ZSTARTUP/ZPlugs64/", pluginName, "/zbrush_rlib.dylib"]
+        ]
+        ,	
+        [VarSet, dllPath, 
+            [StrMerge, "ZBRUSH_ZSTARTUP/ZPlugs64/", pluginName, "/zbrush_rlib.dll"]
+    
+        ] 
+    ]
+]
+
+/* DEFINE ZBRUSH PALETTE / PANEL */
+[IPalette, pluginName,1, 1387] // Alt+Shift+K - assign hotkey to the palette
+[ISubPalette, [StrMerge, pluginName,":", "plugin-sub-panel"  ]]
+
+[IButton, [StrMerge, pluginName,":", "plugin-sub-panel:Get-version"  ], "Get plugin version",
+	[VarSet, err, [FileExecute, dllPath, "get_version"]]
+    [If, err,
+        [Note, [StrMerge, "This DLL is version: ", err]]
+        ,
+        [Note, [StrMerge, "Error code: ", err]]
+    ]
+]
+
+
+[IButton, [StrMerge, pluginName,":", "plugin-sub-panel:Modify string"], "This button will modify string on the plugin side",
+    [VarDef, pluginString, "I'm string from Z-Script"]
+    [MemCreate, outputMemoryModify, 1024, 0] // Allocate a buffer for the output
+	[VarSet, ptr, [FileExecute, [Var, dllPath], "modify_string", pluginString, , outputMemoryModify]]
+    [VarDef, modifiedString, ""]
+    [MemReadString, outputMemoryModify, #modifiedString]
+    [Note, modifiedString]
+    [MemDelete, outputMemoryModify]
+]
+
+[IButton, [StrMerge, pluginName,":", "plugin-sub-panel:Get string"], "This button will get string from the plugin side",
+    [MemCreate, outputMemory, 1024, 0] // Allocate a buffer for the output
+	[VarSet, ptr, [FileExecute, [Var, dllPath], "get_string", , , outputMemory]]
+    [VarDef, returnedString, ""]
+    [MemReadString, outputMemory, #returnedString]
+    [Note, returnedString]
+    [MemDelete, outputMemory]
+]

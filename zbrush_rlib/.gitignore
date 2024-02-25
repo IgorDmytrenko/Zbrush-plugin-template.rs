@@ -1,0 +1,21 @@
+# System files
+.DC_Store
+*.DC_Store
+
+# Environment files
+.env
+
+# Directories
+/__MACOSX
+
+/target
+/resources
+
+# Cache files
+*.pyc
+
+# 3d Files
+*.obj
+*.fbx
+*.abc
+*.usd

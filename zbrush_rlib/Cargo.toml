@@ -1,0 +1,15 @@
+[package]
+name = "zbrush_rlib"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "zbrush_rlib"
+crate-type = ["cdylib"]
+
+[dependencies]
+dirs = "5.0"
+
+
+[target.'cfg(windows)'.dependencies]
+winapi = "0.3"
