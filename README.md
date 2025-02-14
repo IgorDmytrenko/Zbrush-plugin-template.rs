@@ -184,6 +184,24 @@ We can do it with `IPalette` function. This function is responsible for creating
 
 <br />
 
+**How to Get the ID of Our Hotkey Sequence?**
+
+ZBrush has its own logic for determining hotkeys, and they are represented as numeric IDs. To get the ID of your custom shortcut, follow these steps:
+
+1. Assign your own shortcut to any button or to a newly defined button in your plugin. (Press and hold CTRL + ALT, then click on the interface item you want to assign a hotkey to. This could be a button, a slider, or a palette. Next, press the key on your keyboard that you want to assign to the interface item, or press ESC to exit.)
+
+2. Save your hotkeys into a file. This file will contain all assigned shortcuts in ZBrush, including the new ones you defined! That's all—no magic (though it can be a bit confusing). You can then use the retrieved ID in your ZScript, for example: `[PREFERENCES:LIGHTBOX:LIGHTBOX,1387]`
+
+```rust
+//ZBrush Hotkeys
+[BRUSH:MORE ITEMS,98] // B
+[BRUSH:STANDARD,5447796] // Popup+T
+
+// OUR KEY SEQUENCE
+[PREFERENCES:LIGHTBOX:LIGHTBOX,1387] // Alt+Shift+K
+```
+<br />
+
 After declaring our panel, we can add several buttons to it. These buttons can be further categorized into sub-categories, each containing additional buttons.
  - The ISubPalette function allows you to create sub-palettes within your ZBrush interface. It takes two arguments:
    - `name`: This defines the name displayed for the sub-palette.
